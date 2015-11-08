@@ -1,0 +1,62 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    title CodeDay: Loteria
+    script(src='static/js/jquery-latest.min.js')
+    script(src='static/js/materialize.min.js')
+    link(href='static/css/materialize.min.css', rel='stylesheet')
+    link(href='static/css/game.css', rel='stylesheet')
+  body
+    .row
+      .col.s3.scoreboard
+        .card-panel.white
+          h3 #{roomName}
+          p
+            | A Lotería game by 
+            span.bold #{hostName}
+            | , currently in this game as 
+            span.bold #{username}
+            | .
+        .card-panel.white
+          h5 Scoreboard
+          .players
+            ol
+                each item in scoreboard
+                    li= item
+        .card-panel.white
+          h5 New to Loteria?
+          p
+            | Check out the 
+            a(href='/help', target='_blank') help page
+            | .
+      .col.s6.card_board
+        .card_container.card-panel.white
+          img.playing_card(src='static/img/loteria/15.jpg')
+          img.playing_card(src='static/img/loteria/15.jpg')
+          img.playing_card(src='static/img/loteria/15.jpg')
+          img.playing_card(src='static/img/loteria/15.jpg')
+          img.playing_card(src='static/img/loteria/15.jpg')
+          img.playing_card(src='static/img/loteria/15.jpg')
+          img.playing_card(src='static/img/loteria/15.jpg')
+          img.playing_card(src='static/img/loteria/15.jpg')
+          img.playing_card(src='static/img/loteria/15.jpg')
+          img.playing_card(src='static/img/loteria/15.jpg')
+          img.playing_card(src='static/img/loteria/15.jpg')
+          img.playing_card(src='static/img/loteria/15.jpg')
+          img.playing_card(src='static/img/loteria/15.jpg')
+          img.playing_card(src='static/img/loteria/15.jpg')
+          img.playing_card(src='static/img/loteria/15.jpg')
+          img.playing_card(src='static/img/loteria/15.jpg')
+      .col.s3.played_cards
+        .card-panel.white.inner
+          h5 Previous cards
+          .previous_cards
+            img.playing_card(data-marked='false', src='static/img/loteria/15_marked.jpg')
+            img.playing_card(data-marked='false', src='static/img/loteria/15.jpg')
+            img.playing_card(data-marked='false', src='static/img/loteria/15.jpg')
+            img.playing_card(data-marked='false', src='static/img/loteria/15.jpg')
+            img.playing_card(data-marked='false', src='static/img/loteria/15.jpg')
+            img.playing_card(data-marked='false', src='static/img/loteria/15.jpg')
+            img.playing_card(data-marked='false', src='static/img/loteria/15_marked.jpg')
+    script(src='static/js/game.js')

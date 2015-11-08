@@ -41,6 +41,9 @@ $host_room.on('click', function() {
                 if(res.text === 'room exists already') {
                     Materialize.toast('The room specified already exists. Please choose a different room name.', 8000);
                 }
+                else {
+                    window.location = '/game?room='+$room_name.val()+'&user='+$user_name.val();
+                }
 
             }
         });

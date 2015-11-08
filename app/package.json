@@ -6,6 +6,8 @@
     "start": "node app.js"
   },
   "dependencies": {
-    "express": "~4.13.1"
+    "express": "~4.13.1",
+    "jade": "~1.11.0",
+    "cookie-parser": ">=0.8.8"
   }
 }

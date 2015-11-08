@@ -1,0 +1,84 @@
+
+
+@keyframes hovering {
+    0% {
+        transform: translateY(0px);
+        box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+    50% {
+        transform: translateY(-20px);
+        box-shadow: 0 16px 28px 0 rgba(0, 0, 0, 0.22), 0 25px 55px 0 rgba(0, 0, 0, 0.21);
+    }
+    100% {
+        transform: translateY(0px);
+        box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+}
+
+
+body {
+    background: #95A732;
+    padding-top: 20px;
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.row {
+    margin: 0 30px;
+    margin-bottom: 0;
+}
+
+.scoreboard {
+    /*background: blue;*/
+}
+.card_board {
+    /*background: yellow;*/
+}
+.played_cards {
+    /*background: red;*/
+    max-height: calc(100vh - 40px);
+    overflow-y: scroll;
+    margin: 0;
+    /*position: relative;
+    right: 30px;*/
+}
+
+.card_container {
+    text-align: center;
+    max-width: 70%;
+    margin: 0 auto;
+}
+
+.card_container .playing_card {
+    width: 24%;
+    cursor: pointer;
+    transition: all 0.25s;
+}
+.card_container .playing_card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 16px 28px 0 rgba(0, 0, 0, 0.22), 0 25px 55px 0 rgba(0, 0, 0, 0.21);
+}
+
+.previous_cards {
+    text-align: center;
+}
+
+.previous_cards .playing_card {
+    display: inline-block;
+    margin: 0 auto;
+    width: 30%;
+}
+.previous_cards .playing_card:nth-child(1) {
+    display: block;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 45%;
+    animation-name: hovering;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-out;
+}
+
+::-webkit-scrollbar              { display: none; }

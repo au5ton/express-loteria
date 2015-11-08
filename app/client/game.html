@@ -7,80 +7,18 @@
     <script src="static/js/jquery-latest.min.js"></script>
     <script src="static/js/materialize.min.js"></script>
     <link href="static/css/materialize.min.css" rel="stylesheet">
-
-    <style>
-
-    body {
-        background: #95A732;
-        padding-top: 20px;
-    }
-
-    .row {
-        margin: 0 30px;
-        margin-bottom: 0;
-    }
-
-    .scoreboard {
-        /*background: blue;*/
-    }
-    .card_board {
-        /*background: yellow;*/
-    }
-    .played_cards {
-        /*background: red;*/
-        max-height: calc(100vh - 40px);
-        overflow-y: scroll;
-        margin: 0;
-        /*position: relative;
-        right: 30px;*/
-    }
-
-    .card_container {
-        text-align: center;
-        max-width: 70%;
-        margin: 0 auto;
-    }
-
-    .card_container .playing_card {
-        width: 24%;
-        cursor: pointer;
-        transition: all 0.25s;
-    }
-    .card_container .playing_card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 16px 28px 0 rgba(0, 0, 0, 0.22), 0 25px 55px 0 rgba(0, 0, 0, 0.21);
-    }
-
-    .previous_cards {
-        text-align: center;
-    }
-
-    .previous_cards .playing_card {
-        display: inline-block;
-        margin: 0 auto;
-        width: 30%;
-    }
-    .previous_cards .playing_card:nth-child(1) {
-        display: block;
-        margin-top: 50px;
-        margin-bottom: 50px;
-        width: 45%;
-    }
-
-    ::-webkit-scrollbar              { display: none; }
-    ::-webkit-scrollbar-button       {  }
-    ::-webkit-scrollbar-track        {  }
-    ::-webkit-scrollbar-track-piece  {  }
-    ::-webkit-scrollbar-thumb        {  }
-    ::-webkit-scrollbar-corner       {  }
-    ::-webkit-resizer                {  }
-
-    </style>
+    <link href="static/css/game.css" rel="stylesheet">
 
 </head>
 <body>
     <div class="row">
         <div class="col s3 scoreboard">
+            <div class="card-panel white">
+                <h3>RoomName</h3>
+                <p>
+                    A Loter&iacute;a game by HostName
+                </p>
+            </div>
             <div class="card-panel white">
                 <h5>Scoreboard</h5>
                 <div class="players">
@@ -94,9 +32,9 @@
                 </div>
             </div>
             <div class="card-panel white">
-                <h5>Loteria</h5>
+                <h5>New to Loteria?</h5>
                 <p>
-                    Paragraph and instructions or things explaining this game
+                    Check out the <a href="/help" target="_blank">help page</a>.
                 </p>
             </div>
         </div>

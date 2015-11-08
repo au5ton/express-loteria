@@ -49,8 +49,6 @@ router.get('/room/:name', function(req, res) {
     }
 });
 
-
-
 router.get('/join_room/:name/:user', function(req, res) {
     if(RoomManager.roomExists(req.params.name) === true) {
         if(RoomManager.userHasGroup(req.params.user)) {
