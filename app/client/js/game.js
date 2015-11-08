@@ -17,3 +17,18 @@ if(document.getElementById('host_close_room')) {
         });
     });
 }
+
+if(document.getElementById('host_start_game')) {
+    $('#host_start_game').on('click', function(){
+        jQuery.ajax('/api/start_game/'+document.getElementById('roomName').innerHTML, {
+            complete: function(data) {
+                console.log(data);
+                window.location = '/index';
+            }
+        });
+    });
+}
+
+function updateGameView() {
+
+}

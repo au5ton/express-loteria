@@ -23,6 +23,7 @@ html(lang='en')
             if isHost
                 h5 Host tools
                 a.waves-effect.waves-light.btn.yellow.black-text(id='host_close_room') Close room
+                a.waves-effect.waves-light.btn.yellow.black-text(id='host_start_game') Start game
         .card-panel.white
           h5 Scoreboard
           .players
@@ -38,23 +39,26 @@ html(lang='en')
           p
             a(href='/') Click to go back to the homepage
       .col.s6.card_board
-        .card_container.card-panel.white
-          img.playing_card(src='static/img/loteria/15.jpg')
-          img.playing_card(src='static/img/loteria/15.jpg')
-          img.playing_card(src='static/img/loteria/15.jpg')
-          img.playing_card(src='static/img/loteria/15.jpg')
-          img.playing_card(src='static/img/loteria/15.jpg')
-          img.playing_card(src='static/img/loteria/15.jpg')
-          img.playing_card(src='static/img/loteria/15.jpg')
-          img.playing_card(src='static/img/loteria/15.jpg')
-          img.playing_card(src='static/img/loteria/15.jpg')
-          img.playing_card(src='static/img/loteria/15.jpg')
-          img.playing_card(src='static/img/loteria/15.jpg')
-          img.playing_card(src='static/img/loteria/15.jpg')
-          img.playing_card(src='static/img/loteria/15.jpg')
-          img.playing_card(src='static/img/loteria/15.jpg')
-          img.playing_card(src='static/img/loteria/15.jpg')
-          img.playing_card(src='static/img/loteria/15.jpg')
+          .card-panel.white.card_panel
+              .card_container
+                img.playing_card(src='static/img/loteria/15.jpg')
+                img.playing_card(src='static/img/loteria/15.jpg')
+                img.playing_card(src='static/img/loteria/15.jpg')
+                img.playing_card(src='static/img/loteria/15.jpg')
+                img.playing_card(src='static/img/loteria/15.jpg')
+                img.playing_card(src='static/img/loteria/15.jpg')
+                img.playing_card(src='static/img/loteria/15.jpg')
+                img.playing_card(src='static/img/loteria/15.jpg')
+                img.playing_card(src='static/img/loteria/15.jpg')
+                img.playing_card(src='static/img/loteria/15.jpg')
+                img.playing_card(src='static/img/loteria/15.jpg')
+                img.playing_card(src='static/img/loteria/15.jpg')
+                img.playing_card(src='static/img/loteria/15.jpg')
+                img.playing_card(src='static/img/loteria/15.jpg')
+                img.playing_card(src='static/img/loteria/15.jpg')
+                img.playing_card(src='static/img/loteria/15.jpg')
+              a.waves-effect.waves-light.btn.yellow.black-text(id='buenas_button') Stuff
+            
       .col.s3.played_cards
         .card-panel.white.inner
           h5 Previous cards
