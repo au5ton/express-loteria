@@ -32,8 +32,6 @@ app.get('/help', function(req, res) {
     res.sendFile('help.html', {root: './client'});
 });
 app.get('/game', function(req, res) {
-
-    console.log(req.query);
     var currentRoom;
     if(req.query.room) {
         if(req.query.user) {
@@ -53,13 +51,18 @@ app.get('/game', function(req, res) {
                 });
                 var score_string = [];
                 for(var i = 0; i < scoreboard.length; i++) {
-                    score_string.push(scoreboard[i].name+'('+scoreboard[i].score+')');
+                    score_string.push(scoreboard[i].name+' ('+scoreboard[i].score+')');
                 }
                 res.render('game', {
                     roomName: currentRoom.name,
                     hostName: currentRoom.host,
                     scoreboard: score_string,
                     username: req.query.user
+                });
+            }
+            else {
+                res.render('error', {
+                    text: 'The room you provided doesn\'t exist and was probably closed.'
                 });
             }
         }

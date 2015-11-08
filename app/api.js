@@ -10,7 +10,14 @@ var router = express.Router();
 //Actual server code
 var RoomManager = require('./RoomManager');
 
-//Room management
+/*
+____
+|  _ \ ___   ___  _ __ ___  ___
+| |_) / _ \ / _ \| '_ ` _ \/ __|
+|  _ < (_) | (_) | | | | | \__ \
+|_| \_\___/ \___/|_| |_| |_|___/
+
+*/
 router.get('/new_room/:name/:host', function(req, res) {
     if(RoomManager.roomExists(req.params.name)) {
         res.json({text: 'room exists already', room: RoomManager.getRoomByName(req.params.name)});
@@ -52,7 +59,7 @@ router.get('/room/:name', function(req, res) {
 router.get('/join_room/:name/:user', function(req, res) {
     if(RoomManager.roomExists(req.params.name) === true) {
         if(RoomManager.userHasGroup(req.params.user)) {
-            res.json({text: 'room already joined'});
+            res.json({text: 'room already joined', room: RoomManager.getRoomByName(req.params.name)});
         }
         else {
             RoomManager.joinRoom(req.params.name,req.params.user);
@@ -62,6 +69,60 @@ router.get('/join_room/:name/:user', function(req, res) {
     else {
         res.json({text: 'room does not exist'});
     }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+  ____
+ / ___| __ _ _ __ ___   ___
+| |  _ / _` | '_ ` _ \ / _ \
+| |_| | (_| | | | | | |  __/
+ \____|\__,_|_| |_| |_|\___|
+
+*/
+
+
+
+
+router.get('/scoreboard/:format/:name', function(req, res){
+    currentRoom = RoomManager.getRoomByName(req.params.name);
+    if(currentRoom === null) {
+        res.json({text: 'room with specified name not found'});
+    }
+
+    var scoreboard = currentRoom.members;
+    scoreboard = scoreboard.sort(function(a,b){
+        if(a.score > b.score) {
+            return -1;
+        }
+        else if(a.score < b.score){
+            return 1;
+        }
+        else {
+            return 0;
+        }
+    });
+    if(req.params.format !== 'html') {
+        res.json(scoreboard);
+    }
+    var score_string = [];
+    for(var i = 0; i < scoreboard.length; i++) {
+        score_string.push(scoreboard[i].name+' ('+scoreboard[i].score+')');
+    }
+    res.json(score_string);
 });
 
 

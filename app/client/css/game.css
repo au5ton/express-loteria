@@ -81,4 +81,6 @@ body {
     animation-timing-function: ease-out;
 }
 
-::-webkit-scrollbar              { display: none; }
+::-webkit-scrollbar {
+    display: none;
+}

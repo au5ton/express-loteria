@@ -70,6 +70,7 @@ manager.getRoomByName = function(name) {
             return manager.rooms[i];
         }
     }
+    return null;
 }
 
 manager.roomExists = function(name) {
@@ -96,7 +97,6 @@ manager.joinRoom = function(name, user) {
     user = user.toLowerCase();
     for(var i = 0; i < manager.rooms.length; i++) {
         if(manager.rooms[i].name === name) {
-            console.log()
             manager.rooms[i].addMember(user);
         }
     }

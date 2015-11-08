@@ -7,17 +7,22 @@ html(lang='en')
     script(src='static/js/materialize.min.js')
     link(href='static/css/materialize.min.css', rel='stylesheet')
     link(href='static/css/game.css', rel='stylesheet')
+    - var isHost = false;
+    - if(username === hostName) { isHost = true; }
   body
     .row
       .col.s3.scoreboard
         .card-panel.white
-          h3 #{roomName}
+          h3(id='roomName') #{roomName}
           p
             | A Lotería game by 
             span.bold #{hostName}
             | , currently in this game as 
             span.bold #{username}
             | .
+            if isHost
+                h5 Host tools
+                a.waves-effect.waves-light.btn.yellow.black-text(id='host_close_room') Close room
         .card-panel.white
           h5 Scoreboard
           .players
@@ -30,6 +35,8 @@ html(lang='en')
             | Check out the 
             a(href='/help', target='_blank') help page
             | .
+          p
+            a(href='/') Click to go back to the homepage
       .col.s6.card_board
         .card_container.card-panel.white
           img.playing_card(src='static/img/loteria/15.jpg')
