@@ -58,7 +58,7 @@ $join_room.on('click', function() {
                     Materialize.toast('The room specified does not exist.', 8000);
                 }
                 else if(res.text === 'room already joined') {
-                    Materialize.toast('You\'ve already joined the room specified.', 8000);
+                    Materialize.toast('You\'ve already joined a room. You can only join one room at a time.', 8000);
                 }
 
             }

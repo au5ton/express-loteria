@@ -82,6 +82,26 @@ manager.roomExists = function(name) {
     return false;
 };
 
+manager.closeRoom = function(name) {
+    name = name.toLowerCase();
+    for(var i = 0; i < manager.rooms.length; i++) {
+        if(manager.rooms[i].name === name) {
+            manager.rooms.splice(i,1);
+        }
+    }
+}
+
+manager.joinRoom = function(name, user) {
+    name = name.toLowerCase();
+    user = user.toLowerCase();
+    for(var i = 0; i < manager.rooms.length; i++) {
+        if(manager.rooms[i].name === name) {
+            console.log()
+            manager.rooms[i].addMember(user);
+        }
+    }
+}
+
 manager.groupHasMember = function(name, user) {
     name = name.toLowerCase();
     user = user.toLowerCase();
@@ -93,23 +113,25 @@ manager.groupHasMember = function(name, user) {
     return false;
 };
 
-manager.closeRoom = function(name) {
-    name = name.toLowerCase();
+manager.userHasGroup = function(user) {
+    user = user.toLowerCase();
     for(var i = 0; i < manager.rooms.length; i++) {
-        if(manager.rooms[i].name === name) {
-            manager.rooms.splice(i,1);
+        if(manager.groupHasMember(manager.rooms[i].name, user) === true) {
+            return true;
         }
-    }
-}
+     }
+     return false;
+};
 
-manager.joinRoom = function(name, user) {
+manager.getGroupForMember = function(user) {
+    user = user.toLowerCase();
     for(var i = 0; i < manager.rooms.length; i++) {
-        if(manager.rooms[i].name === name) {
-            console.log()
-            manager.rooms[i].addMember(user);
+        if(manager.groupHasMember(manager.rooms[i].name, user) === true) {
+            return manager.rooms[i];
         }
-    }
-}
+     }
+     return null;
+};
 
 
 
