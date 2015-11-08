@@ -1,15 +1,18 @@
+/*
+*  App.js
+*
+*/
+
 var express = require('express');
 var fs = require('fs');
 var http = require('http');
 var querystring = require('querystring');
 var app = express();
 
-function isEmptyObject(obj) {
-    return !Object.keys(obj).length;
-}
+var api = require('./api');
 
+//Static page serving
 app.use('/static', express.static('client'));
-
 app.get('/', function(req, res) {
     res.sendFile('index.html', {root: './client'});
 });
@@ -17,8 +20,15 @@ app.get('/game', function(req, res) {
     res.sendFile('game.html', {root: './client'});
 });
 
-app.get('/helloworld', function (req, res) {
-    res.json({'response':'Check out the API!'});
+//API calls are done under api.js
+app.use('/api', api);
+
+//Mirrors for testing
+app.get('/query_mirror', function (req, res) {
+    res.json(req.query);
+});
+app.get('/params_mirror/:name/:other', function (req, res) {
+    res.json(req.params);
 });
 
 
