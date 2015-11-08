@@ -12,8 +12,6 @@ $user_name.on('keyup', validateForm);
 $room_name.on('keyup', validateForm);
 
 function validateForm() {
-    console.log($user_name.val());
-    console.log($room_name.val());
     if($user_name.val() !== '' && $room_name.val() !== '') {
         enableForm();
     }

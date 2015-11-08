@@ -8,17 +8,17 @@ function isEmptyObject(obj) {
     return !Object.keys(obj).length;
 }
 
-app.get('/', function (req, res) {
-    res.set('Access-Control-Allow-Origin','*');
+app.use('/static', express.static('client'));
+
+app.get('/', function(req, res) {
+    res.sendFile('index.html', {root: './client'});
+});
+app.get('/game', function(req, res) {
+    res.sendFile('game.html', {root: './client'});
+});
+
+app.get('/helloworld', function (req, res) {
     res.json({'response':'Check out the API!'});
-});
-
-app.get('/api/mostpopular', function(req, res) {
-    res.set('Access-Control-Allow-Origin','*');
-});
-
-app.get('/api/mostusedlanguages', function (req, res) {
-    res.set('Access-Control-Allow-Origin','*');
 });
 
 

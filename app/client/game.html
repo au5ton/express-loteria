@@ -4,7 +4,9 @@
     <meta charset="utf-8">
     <title>CodeDay: Loteria</title>
 
-    <link href="css/materialize.min.css" rel="stylesheet">
+    <script src="static/js/jquery-latest.min.js"></script>
+    <script src="static/js/materialize.min.js"></script>
+    <link href="static/css/materialize.min.css" rel="stylesheet">
 
     <style>
 
@@ -75,8 +77,6 @@
 
     </style>
 
-    <script src="js/jquery-latest.min.js"></script>
-
 </head>
 <body>
     <div class="row">
@@ -102,47 +102,42 @@
         </div>
         <div class="col s6 card_board">
             <div class="card_container card-panel white">
-                <img class="playing_card" src="img/loteria/15.jpg">
-                <img class="playing_card" src="img/loteria/15.jpg">
-                <img class="playing_card" src="img/loteria/15.jpg">
-                <img class="playing_card" src="img/loteria/15.jpg">
-                <img class="playing_card" src="img/loteria/15.jpg">
-                <img class="playing_card" src="img/loteria/15.jpg">
-                <img class="playing_card" src="img/loteria/15.jpg">
-                <img class="playing_card" src="img/loteria/15.jpg">
-                <img class="playing_card" src="img/loteria/15.jpg">
-                <img class="playing_card" src="img/loteria/15.jpg">
-                <img class="playing_card" src="img/loteria/15.jpg">
-                <img class="playing_card" src="img/loteria/15.jpg">
-                <img class="playing_card" src="img/loteria/15.jpg">
-                <img class="playing_card" src="img/loteria/15.jpg">
-                <img class="playing_card" src="img/loteria/15.jpg">
-                <img class="playing_card" src="img/loteria/15.jpg">
+                <img class="playing_card" src="static/img/loteria/15.jpg">
+                <img class="playing_card" src="static/img/loteria/15.jpg">
+                <img class="playing_card" src="static/img/loteria/15.jpg">
+                <img class="playing_card" src="static/img/loteria/15.jpg">
+                <img class="playing_card" src="static/img/loteria/15.jpg">
+                <img class="playing_card" src="static/img/loteria/15.jpg">
+                <img class="playing_card" src="static/img/loteria/15.jpg">
+                <img class="playing_card" src="static/img/loteria/15.jpg">
+                <img class="playing_card" src="static/img/loteria/15.jpg">
+                <img class="playing_card" src="static/img/loteria/15.jpg">
+                <img class="playing_card" src="static/img/loteria/15.jpg">
+                <img class="playing_card" src="static/img/loteria/15.jpg">
+                <img class="playing_card" src="static/img/loteria/15.jpg">
+                <img class="playing_card" src="static/img/loteria/15.jpg">
+                <img class="playing_card" src="static/img/loteria/15.jpg">
+                <img class="playing_card" src="static/img/loteria/15.jpg">
             </div>
         </div>
         <div class="col s3 played_cards">
             <div class="card-panel white inner">
                 <h5>Previous cards</h5>
                 <div class="previous_cards">
-                    <img class="playing_card" data-marked="false" src="img/loteria/15_marked.jpg">
-                    <img class="playing_card" data-marked="false" src="img/loteria/15.jpg">
-                    <img class="playing_card" data-marked="false" src="img/loteria/15.jpg">
-                    <img class="playing_card" data-marked="false" src="img/loteria/15.jpg">
-                    <img class="playing_card" data-marked="false" src="img/loteria/15.jpg">
-                    <img class="playing_card" data-marked="false" src="img/loteria/15.jpg">
-                    <img class="playing_card" data-marked="false" src="img/loteria/15_marked.jpg">
+                    <img class="playing_card" data-marked="false" src="static/img/loteria/15_marked.jpg">
+                    <img class="playing_card" data-marked="false" src="static/img/loteria/15.jpg">
+                    <img class="playing_card" data-marked="false" src="static/img/loteria/15.jpg">
+                    <img class="playing_card" data-marked="false" src="static/img/loteria/15.jpg">
+                    <img class="playing_card" data-marked="false" src="static/img/loteria/15.jpg">
+                    <img class="playing_card" data-marked="false" src="static/img/loteria/15.jpg">
+                    <img class="playing_card" data-marked="false" src="static/img/loteria/15_marked.jpg">
                 </div>
             </div>
         </div>
     </div>
 
-    <script>
 
-    $('.card_container .playing_card').on('click', function(event){
-        event.target.setAttribute('src','img/loteria/15_marked.jpg');
-    });
-
-    </script>
+    <script src="static/js/game.js"></script>
 
 </body>
 </html>
