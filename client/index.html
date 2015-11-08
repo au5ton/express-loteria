@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>CodeDay: Loteria</title>
+
+    <script src="js/jquery-latest.min.js"></script>
+    <script src="js/materialize.min.js"></script>
+
+    <link href="css/materialize.min.css" rel="stylesheet">
+
+    <style>
+
+    body {
+        background: #95A732;
+        padding-top: 20px;
+    }
+
+    blockquote {
+        border-left-color: #f9a825;
+    }
+
+    input[type=text]:focus {
+        border-bottom: 1px solid #f9a825 !important;
+        box-shadow: 0 1px 0 0 #f9a825 !important;
+    }
+    input[type=text]:focus:not([readonly])+label {
+        color: #f9a825 !important;
+    }
+
+    </style>
+
+</head>
+<body>
+    <div class="container">
+
+
+        <div class="card-panel white">
+            <h1>CodeDay: Loter&iacute;a</h1>
+            <p>
+                Welcome to my Loteria game!
+
+                From Wikipedia, Loteria is:
+                <blockquote>
+                    Lotería is a Latin game originated from Mexico game of chance, similar to bingo, but using images on a deck of cards instead of plain numbers on ping pong balls. Every image has a name and an assigned number, but the number is usually ignored. Each player has at least one tabla, a board with a randomly created 4 x 4 grid of pictures with their corresponding name and number. Players choose what tabla they want to play with, from a variety of previously created tablas. Each one presents a different selection of images.
+                </blockquote>
+            </p>
+            <div>
+                <div class="input-field">
+                    <input id="user_name" type="text">
+                    <label for="user_name">Username</label>
+                </div>
+                <div class="input-field">
+                    <input id="room_name" type="text">
+                    <label for="room_name">Room name</label>
+                </div>
+                <a class="waves-effect waves-light btn disabled yellow black-text">Host new room</a>
+                <a class="waves-effect waves-light btn disabled yellow black-text">Join room</a>
+            </div>
+        </div>
+
+
+    </div>
+    <script src="js/index.js"></script>
+</body>
+</html>
