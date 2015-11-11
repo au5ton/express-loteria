@@ -59,11 +59,17 @@ body {
 #buenas_button {
     margin: 25px 0;
 }
+#host_close_room {
+    margin-bottom: 10px;
+}
 
 .card_container .playing_card {
     width: 24%;
     cursor: pointer;
     transition: all 0.25s;
+    user-drag: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
 }
 .card_container .playing_card:hover {
     transform: translateY(-10px);
@@ -78,6 +84,9 @@ body {
     display: inline-block;
     margin: 0 auto;
     width: 30%;
+    user-drag: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
 }
 .previous_cards .playing_card:nth-child(1) {
     display: block;

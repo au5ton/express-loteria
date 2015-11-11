@@ -5,6 +5,7 @@ html(lang='en')
     title CodeDay: Loteria
     script(src='static/js/jquery-latest.min.js')
     script(src='static/js/materialize.min.js')
+    script(src='static/js/socket.io-1.3.7.js')
     link(href='static/css/materialize.min.css', rel='stylesheet')
     link(href='static/css/game.css', rel='stylesheet')
     - var isHost = false;
@@ -13,12 +14,12 @@ html(lang='en')
     .row
       .col.s3.scoreboard
         .card-panel.white
-          h3(id='roomName') #{roomName}
+          h3(id='room_name') #{roomName}
           p
             | A Lotería game by 
             span.bold #{hostName}
-            | , currently in this game as 
-            span.bold #{username}
+            | . Logged in as 
+            span.bold(id='user_name') #{username}
             | .
             if isHost
                 h5 Host tools
@@ -41,33 +42,27 @@ html(lang='en')
       .col.s6.card_board
           .card-panel.white.card_panel
               .card_container
-                img.playing_card(src='static/img/loteria/15.jpg')
-                img.playing_card(src='static/img/loteria/15.jpg')
-                img.playing_card(src='static/img/loteria/15.jpg')
-                img.playing_card(src='static/img/loteria/15.jpg')
-                img.playing_card(src='static/img/loteria/15.jpg')
-                img.playing_card(src='static/img/loteria/15.jpg')
-                img.playing_card(src='static/img/loteria/15.jpg')
-                img.playing_card(src='static/img/loteria/15.jpg')
-                img.playing_card(src='static/img/loteria/15.jpg')
-                img.playing_card(src='static/img/loteria/15.jpg')
-                img.playing_card(src='static/img/loteria/15.jpg')
-                img.playing_card(src='static/img/loteria/15.jpg')
-                img.playing_card(src='static/img/loteria/15.jpg')
-                img.playing_card(src='static/img/loteria/15.jpg')
-                img.playing_card(src='static/img/loteria/15.jpg')
-                img.playing_card(src='static/img/loteria/15.jpg')
-              a.waves-effect.waves-light.btn.yellow.black-text(id='buenas_button') Stuff
+                img.playing_card(src='static/img/loteria/0.jpg', data-markable-card='0', data-card-id='0', data-marked='false')
+                img.playing_card(src='static/img/loteria/0.jpg', data-markable-card='1', data-card-id='0', data-marked='false')
+                img.playing_card(src='static/img/loteria/0.jpg', data-markable-card='2', data-card-id='0', data-marked='false')
+                img.playing_card(src='static/img/loteria/0.jpg', data-markable-card='3', data-card-id='0', data-marked='false')
+                img.playing_card(src='static/img/loteria/0.jpg', data-markable-card='4', data-card-id='0', data-marked='false')
+                img.playing_card(src='static/img/loteria/0.jpg', data-markable-card='5', data-card-id='0', data-marked='false')
+                img.playing_card(src='static/img/loteria/0.jpg', data-markable-card='6', data-card-id='0', data-marked='false')
+                img.playing_card(src='static/img/loteria/0.jpg', data-markable-card='7', data-card-id='0', data-marked='false')
+                img.playing_card(src='static/img/loteria/0.jpg', data-markable-card='8', data-card-id='0', data-marked='false')
+                img.playing_card(src='static/img/loteria/0.jpg', data-markable-card='9', data-card-id='0', data-marked='false')
+                img.playing_card(src='static/img/loteria/0.jpg', data-markable-card='10', data-card-id='0', data-marked='false')
+                img.playing_card(src='static/img/loteria/0.jpg', data-markable-card='11', data-card-id='0', data-marked='false')
+                img.playing_card(src='static/img/loteria/0.jpg', data-markable-card='12', data-card-id='0', data-marked='false')
+                img.playing_card(src='static/img/loteria/0.jpg', data-markable-card='13', data-card-id='0', data-marked='false')
+                img.playing_card(src='static/img/loteria/0.jpg', data-markable-card='14', data-card-id='0', data-marked='false')
+                img.playing_card(src='static/img/loteria/0.jpg', data-markable-card='15', data-card-id='0', data-marked='false')
+              a.waves-effect.waves-light.btn.yellow.black-text(id='buenas_button') &iexcl;Buenas!
             
       .col.s3.played_cards
         .card-panel.white.inner
           h5 Previous cards
           .previous_cards
-            img.playing_card(data-marked='false', src='static/img/loteria/15_marked.jpg')
-            img.playing_card(data-marked='false', src='static/img/loteria/15.jpg')
-            img.playing_card(data-marked='false', src='static/img/loteria/15.jpg')
-            img.playing_card(data-marked='false', src='static/img/loteria/15.jpg')
-            img.playing_card(data-marked='false', src='static/img/loteria/15.jpg')
-            img.playing_card(data-marked='false', src='static/img/loteria/15.jpg')
-            img.playing_card(data-marked='false', src='static/img/loteria/15_marked.jpg')
+            img.playing_card(data-marked='false', src='static/img/loteria/0.jpg')
     script(src='static/js/game.js')

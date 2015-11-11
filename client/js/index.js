@@ -14,7 +14,7 @@ $user_name.on('keyup', validateForm);
 $room_name.on('keyup', validateForm);
 
 function validateForm() {
-    if($user_name.val() !== '' && $room_name.val() !== '') {
+    if($user_name.val() !== '' && $room_name.val() !== '' && $user_name.val().length <= 20 && $room_name.val().length <= 30) {
         enableForm();
     }
     else {

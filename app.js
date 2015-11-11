@@ -3,13 +3,23 @@
 *
 */
 
-var express = require('express');
+var express = require('express')
 var fs = require('fs');
 var http = require('http');
 var querystring = require('querystring');
 var path = require('path');
 var cookieParser = require('cookie-parser');
+
 var app = express();
+var server = require('http').Server(app);
+var io = require('socket.io')(server);
+
+server.listen(process.env.PORT || 3000, function(){
+    var host = server.address().address;
+    var port = server.address().port;
+    console.log('Example app listening at http://%s:%s', host, port);
+});
+
 
 var RoomManager = require('./RoomManager');
 
@@ -31,6 +41,18 @@ app.get('/index', function(req, res) {
 app.get('/help', function(req, res) {
     res.sendFile('help.html', {root: './client'});
 });
+
+io.on('connection', function (socket) {
+    socket.emit('welcome', {response: 'welcome'});
+
+    socket.on('refresh game', function(data) {
+        socket.emit('game refreshed', {}); //game data the user wants
+    });
+
+});
+
+
+
 app.get('/game', function(req, res) {
     var currentRoom;
     if(req.query.room) {
@@ -89,17 +111,4 @@ app.get('/query_mirror', function (req, res) {
 });
 app.get('/params_mirror/:name/:other', function (req, res) {
     res.json(req.params);
-});
-
-
-var server = app.listen(process.env.PORT || 3000, function () {
-    var host = server.address().address;
-    var port = server.address().port;
-
-    /*fs.readFile('colors.json', 'utf8', function(err,data){
-    if(err) throw err;
-    github_colors = JSON.parse(data);
-});*/
-
-console.log('Example app listening at http://%s:%s', host, port);
 });
